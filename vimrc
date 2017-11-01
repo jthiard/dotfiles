@@ -55,8 +55,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " backup files
-set backupdir=~/.backup
 set directory=~/.backup
+set backupdir=~/.backup
 
 syntax on
 
@@ -192,6 +192,7 @@ runtime! macros/matchit.vim " Load matchit (% to bounce from do to end, etc.)
 ab logimport import logging; logger = logging.getLogger(__name__)
 ab utf8coding # -*- coding: utf-8 -*-
 ab lazygettext from django.utils.translation import ugettext_lazy as _
-ab pdbtrace import ipdb; ipdb.set_trace()
+ab pdbtrace import pdb; pdb.set_trace()
+ab ipdbtrace import ipdb; ipdb.set_trace()
 ab cline # ------------------------------------------------------------------------------
 
