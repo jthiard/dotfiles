@@ -171,6 +171,7 @@ let g:pymode_lint_on_fly = 0
 let g:pymode_rope = 0
 
 " pandoc
+let g:pandoc#biblio#sources = 'bg'
 let g:pandoc#formatting#mode = 'ha'
 let g:pandoc#syntax#conceal#use = 0
 
@@ -178,9 +179,9 @@ let g:pandoc#syntax#conceal#use = 0
 " <localleader>t to open TOC in vertical split
 autocmd Filetype pandoc nnoremap <buffer> <localleader>t :TOC<cr>
 " <localleader>c compile to html 
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc --katex -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload<cr>
 " <localleader>c! to compile and open in browser
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! --katex -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload<cr>
 
 " navigation in wrapped lines
 :map <up> gk
