@@ -1,45 +1,53 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'klen/python-mode'
+Plug 'nvie/vim-flake8'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'majutsushi/tagbar'
+"Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-easytags'
+Plug 'rking/ag.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
+Plug 'vim-scripts/django.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'lifepillar/pgsql.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'klen/python-mode.git'
-Plugin 'vim-flake8'
-Plugin 'vim-airline/vim-airline.git'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'nathanaelkane/vim-indent-guides.git'
-Plugin 'majutsushi/tagbar'
-Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-easytags'
-Plugin 'rking/ag.vim'
-"Plugin 'pangloss/vim-javascript'
-Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-scripts/django.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'gavocanov/vim-js-indent'
+Plug 'mxw/vim-jsx'
+"Plug 'othree/yajs.vim'
+Plug 'editorconfig/editorconfig-vim'
 
-Plugin 'gavocanov/vim-js-indent'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/yajs.vim'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'junegunn/goyo.vim'
 
-Plugin 'junegunn/goyo.vim'
+Plug 'tomasr/molokai'
+Plug 'ratazzi/blackboard.vim'
+Plug 'jthiard/vim-playskool'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'vim-scripts/Align'
+"Plug 'vim-scripts/SQLUtilities'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 
-Plugin 'tomasr/molokai.git'
-Plugin 'ratazzi/blackboard.vim'
-Plugin 'jthiard/vim-playskool'
+Plug 'szymonmaszke/vimpyter'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'lervag/vimtex'
+
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+"Plug 'vim-syntastic/syntastic'
+
+call plug#end()
+
 set autoindent
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
