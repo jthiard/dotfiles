@@ -54,6 +54,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" https://github.com/vim/vim/issues/1671#issuecomment-299258728
+" xfce terminal doesn't seem to support bracketed paste.
+set t_BE=
+
 " backup files
 set directory=~/.backup
 set backupdir=~/.backup
@@ -65,13 +69,12 @@ au BufNewFile,BufRead *.json set filetype=javascript
 au BufNewFile,BufRead *.html set filetype=htmldjango
 au BufNewFile,BufRead *.twig set filetype=htmldjango
 
-
 set number
 set hlsearch
 set mouse=a "Activate mouse on console mode
 set nowrap
 set colorcolumn=100
-
+set backspace=indent,eol,start
 
 set wildmenu
 set wildmode=list:longest,full
@@ -90,9 +93,9 @@ set guifont=Liberation\ Mono\ 10
  
 
 set expandtab       " Use spaces instead of tabs
-set tabstop=4       " Display \t as 2 spaces
+set tabstop=4       " Display \t as 4 spaces
 set shiftwidth=4    " Number of spaces to use for each indent
-set softtabstop=4   " Treat 2 spaces as a tab for editing purposes
+set softtabstop=4   " Treat 4 spaces as a tab for editing purposes
 set smarttab        " Insert blank space at beginning of line with tab
 
 let mapleader = "," " Redéfinit la touche <Leader> à ',' au lieu de '\'
@@ -113,7 +116,7 @@ set showcmd
 set nofoldenable
 
 " virtualenv
-:let g:virtualenv_directory="~/envs"
+"let g:virtualenv_directory="~/envs"
 
 "Easy .vimrc editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -147,12 +150,12 @@ let g:javascript_enable_domhtmlcss = 1
 let g:javascript_fold = 0
 
 "" python-mode
-
+let g:pymode_folding = 0
 let g:pymode_syntax_space_errors = 0
 let g:pymode_options_max_line_length=100
 
 " pylint
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_unmodified = 0
 let g:pymode_lint_on_fly = 0
@@ -167,9 +170,9 @@ let g:pandoc#syntax#conceal#use = 0
 " <localleader>t to open TOC in vertical split
 autocmd Filetype pandoc nnoremap <buffer> <localleader>t :TOC<cr>
 " <localleader>c compile to html 
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc --katex -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
 " <localleader>c! to compile and open in browser
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! --katex -s -S --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload html<cr>
 
 " navigation in wrapped lines
 :map <up> gk
@@ -184,8 +187,22 @@ autocmd Filetype html setlocal sw=2
 autocmd Filetype scss setlocal sw=2
 autocmd Filetype htmldjango setlocal sw=2
 autocmd Filetype javascript setlocal sw=2
+autocmd Filetype vue setlocal sw=2
+autocmd Filetype yaml setlocal sw=2
 
 runtime! macros/matchit.vim " Load matchit (% to bounce from do to end, etc.)
+
+" json formatter
+" :Formatjson
+com! FormatJSON %!python -m json.tool
+
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 
 " abbreviations
