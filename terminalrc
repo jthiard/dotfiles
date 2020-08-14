@@ -1,10 +1,5 @@
 [Configuration]
 FontName=Monospace 10
-ColorForeground=#b3b3b3b3b3b3
-ColorBackground=#13111e122eea
-ColorCursor=#bfeec255c5a5
-TabActivityColor=#80802626273a
-ColorSelection=#1dd11f8020de
 ColorPalette2=#a66600004555
 ColorPalette3=#10a4a666428f
 ColorPalette4=#cccc44440000
@@ -37,5 +32,10 @@ MiscScrollAlternateScreen=TRUE
 ScrollingLines=10000
 TitleInitial=
 CommandUpdateRecords=FALSE
+ColorForeground=#b3b3b3b3b3b3
+ColorBackground=#13111e122eea
+ColorCursor=#8493883f8d4f
+ColorSelection=#1dd11f8020de
 ColorPalette=#0d0d21212626;#ddaa289d11d1;#0000aaaa0000;#aaaa55550000;#273027306f68;#aaaa0000aaaa;#0000aaaaaaaa;#aaaaaaaaaaaa;#555555555555;#ffff55555555;#5555ffff5555;#ffffffff5555;#55555555ffff;#ffff5555ffff;#5555ffffffff;#ffffffffffff
+TabActivityColor=#80802626273a
 

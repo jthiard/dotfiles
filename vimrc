@@ -41,6 +41,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'szymonmaszke/vimpyter'
 
 Plug 'lervag/vimtex'
+Plug 'cespare/vim-toml'
+
+Plug 'chr4/nginx.vim'
+Plug 'alvan/vim-closetag'
 
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
@@ -65,12 +69,14 @@ filetype plugin indent on    " required
 " https://github.com/vim/vim/issues/1671#issuecomment-299258728
 " xfce terminal doesn't seem to support bracketed paste.
 set t_BE=
-
+"
 " backup files
 set directory=~/.backup
 set backupdir=~/.backup
 
 syntax on
+
+set guicursor+=v:blinkon0
 
 " add some file extensions to filetypes
 au BufNewFile,BufRead *.json set filetype=javascript
@@ -179,9 +185,9 @@ let g:pandoc#syntax#conceal#use = 0
 " <localleader>t to open TOC in vertical split
 autocmd Filetype pandoc nnoremap <buffer> <localleader>t :TOC<cr>
 " <localleader>c compile to html 
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c :Pandoc html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=custom<cr>
 " <localleader>c! to compile and open in browser
-autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=autoreload<cr>
+autocmd Filetype pandoc nnoremap <buffer> <localleader>c! :Pandoc! html --katex -s --toc -H ~/.pandoc/css/github-pandoc.css.html --template=custom<cr>
 
 " navigation in wrapped lines
 :map <up> gk
@@ -194,16 +200,23 @@ set listchars+=trail:·,nbsp:_
 
 autocmd Filetype html setlocal sw=2
 autocmd Filetype scss setlocal sw=2
+autocmd Filetype css setlocal sw=2
 autocmd Filetype htmldjango setlocal sw=2
 autocmd Filetype javascript setlocal sw=2
 autocmd Filetype vue setlocal sw=2
 autocmd Filetype yaml setlocal sw=2
+
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
 runtime! macros/matchit.vim " Load matchit (% to bounce from do to end, etc.)
 
 " json formatter
 " :Formatjson
 com! FormatJSON %!python -m json.tool
+
+" xml formatter
+" :FormatXML
+com! FormatXML %!xmllint --format --recover -
 
 
 "let g:syntastic_always_populate_loc_list = 1
