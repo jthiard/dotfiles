@@ -4,7 +4,9 @@ call plug#begin('~/vim/bundle')
 
 Plug 'tpope/vim-fugitive'
 Plug 'klen/python-mode'
-Plug 'nvie/vim-flake8'
+"Plug 'nvie/vim-flake8'
+Plug 'dense-analysis/ale'
+"Plug 'tell-k/vim-autopep8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
@@ -22,7 +24,8 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lifepillar/pgsql.vim'
 
 "Plug 'gavocanov/vim-js-indent'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 "Plug 'othree/yajs.vim'
 Plug 'editorconfig/editorconfig-vim'
 
@@ -45,6 +48,7 @@ Plug 'cespare/vim-toml'
 
 Plug 'chr4/nginx.vim'
 Plug 'alvan/vim-closetag'
+Plug 'walkermatt/vim-mapfile'
 
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
@@ -203,6 +207,7 @@ autocmd Filetype scss setlocal sw=2
 autocmd Filetype css setlocal sw=2
 autocmd Filetype htmldjango setlocal sw=2
 autocmd Filetype javascript setlocal sw=2
+autocmd Filetype json setlocal sw=2
 autocmd Filetype vue setlocal sw=2
 autocmd Filetype yaml setlocal sw=2
 
@@ -234,4 +239,19 @@ ab lazygettext from django.utils.translation import ugettext_lazy as _
 ab pdbtrace import pdb; pdb.set_trace()
 ab ipdbtrace import ipdb; ipdb.set_trace()
 ab cline # ------------------------------------------------------------------------------
+ab jsdebugger debugger; // eslint-disable-line
+
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'python': ['pycodestyle']}
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_filetype_changed = 0
+
+
+command Sudow :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
