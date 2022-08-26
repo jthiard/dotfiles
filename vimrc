@@ -217,11 +217,11 @@ runtime! macros/matchit.vim " Load matchit (% to bounce from do to end, etc.)
 
 " json formatter
 " :Formatjson
-com! FormatJSON %!python -m json.tool
+com! FormatJSON :execute '%!python3.9 -m json.tool --indent=2'
 
 " xml formatter
 " :FormatXML
-com! FormatXML %!xmllint --format --recover -
+com! FormatXML :execute '%!xmllint --format --recover -'
 
 
 "let g:syntastic_always_populate_loc_list = 1
@@ -238,6 +238,7 @@ ab utf8coding # -*- coding: utf-8 -*-
 ab lazygettext from django.utils.translation import ugettext_lazy as _
 ab pdbtrace import pdb; pdb.set_trace()
 ab ipdbtrace import ipdb; ipdb.set_trace()
+ab qgistrace import pdb; from qgis.PyQt.QtCore import pyqtRemoveInputHook; pyqtRemoveInputHook(); pdb.set_trace()
 ab cline # ------------------------------------------------------------------------------
 ab jsdebugger debugger; // eslint-disable-line
 
@@ -252,6 +253,8 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_filetype_changed = 0
 
-
+" Write a file as root if forgotten to open it with
+" the good rights
+" :Sudow
 command Sudow :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
