@@ -1,0 +1,11 @@
+[user]
+	name = Jérôme Thiard
+
+[alias]
+	fpush = push --force-with-lease
+
+[include]
+    path = .gitconfig-taf
+
+[includeIf "gitdir:~/perso/"]
+    path = .gitconfig-perso
